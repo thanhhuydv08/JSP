@@ -2,7 +2,7 @@ JSP = html + java code (nhúng java code vào html); khác với de\\servlet = j
 6  điều kiện :
  1- <%@ khi báo ngôn ngữ , lớp thư mục tạp tin%>
  2- <%! khai báo biến , hàm dùng chung%>
- 3- <% các lwnhj java%>
+ 3- <% các lệnh java%>
  4- <%=biểu thức in ra%>
- 5 -<JSP actionName/>
+ 5 -<JSP: actionName/>
  6-<%-- ghi chú --%>
