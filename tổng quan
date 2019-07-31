@@ -1,4 +1,7 @@
 JSP = html + java code (nhúng java code vào html); khác với de\\servlet = javacode +html
+
+======================= bien : request.getParameter rat quang trong trong JSP
+
 6  điều kiện :
  -- lập trình code trong the <head>   </head>
  1- <%@ khi báo ngôn ngữ , lớp thư mục tạp tin%>
