@@ -7,3 +7,46 @@ JSP = html + java code (nhúng java code vào html); khác với de\\servlet = j
  4- <%=biểu thức in ra%>
  5 -<JSP: actionName/>
  6-<%-- ghi chú --%>
+= các bieens an 
+ 1- application -> setatribute, getAtrubute, setpara.....-> co the lay o moi trang khi chạy tru khi dong server
+ 2- sesion    -> setatribute, getAtrubute, setpara.....-> co the lay moi trang khi trinh duỷ\et chgua dong, neu trinh duyet dong roi thi khong the get dc bien set len
+ 3-  bắt suwh\j kienjs cho submit  dùng jsp request.setPara
+                                         <%@page import="java.sql.PreparedStatement"%>
+                            <%@page import="helper.CSDL"%>
+                            <%@page import="java.sql.Connection"%>
+                            <%@ page language="java" contentType="text/html; charset=UTF-8"
+                                pageEncoding="UTF-8"%>
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                            <meta charset="UTF-8">
+                            <title>Thêm loại sữa</title>
+                            <%
+                             String maLoai="", tenLoai="";
+                             if(request.getParameter("btnThem")!=null){
+                              maLoai = request.getParameter("txtMaLoai");
+                              tenLoai= request.getParameter("txtTenLoai");
+
+                              String sql = "insert into loai_sua(ma_loai_sua, ten_loai) values (?,?)";
+                              Connection ketNoi = CSDL.getKetNoi();
+                              PreparedStatement pst = ketNoi.prepareStatement(sql);
+                              pst.setString(1,maLoai);
+                              pst.setString(2,tenLoai);
+                              pst.executeUpdate();
+                             }
+                            %>
+                            </head>
+                            <body>
+                            <form action="" method="get">
+                             Mã loại: <input type="text" name="txtMaLoai" value="<%=maLoai%>"/><br>
+                             Tên loại: <input type="text" name="txtTenLoai" value="<%=tenLoai%>"/><br>
+                             <input type="submit" name="btnThem" value="Thêm"/>
+                            </form>
+                            </body>
+                            </html>
+                            
+                            
+
+                            
+
+    
