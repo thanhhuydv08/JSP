@@ -1,0 +1,20 @@
+@charset "UTF-8";
+td{
+	vertical-align: top;
+	text-align:center;
+	width:180px;
+}
+img{
+	width:100px;
+	height:120px;
+}
+th{
+	height:40px;
+	color:red;
+	font-size:25px;
+	font-weight:bold;
+	background-color:pink;
+}
+table{
+	margin:auto;
+}
