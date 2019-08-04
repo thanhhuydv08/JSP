@@ -1,0 +1,46 @@
+<%@page import="java.text.NumberFormat"%>
+<%@page import="java.util.Locale"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="helper.CSDL"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bài tập 4</title>
+<%!
+	Connection ketNoi = CSDL.getKetNoi();
+	Statement stm;
+	ResultSet rs;
+	String sql = "select ten_sua, trong_luong, don_gia, hinh from sua";
+	Locale lc = new Locale("vi","VN");
+	NumberFormat nf = NumberFormat.getNumberInstance(lc);
+%>
+<%
+	stm = ketNoi.createStatement();
+	rs =stm.executeQuery(sql);
+	int sc=1;
+%>
+<link rel="stylesheet" type="text/css" href="css/bt4.css">
+</head>
+<body>
+<table border="1">
+	<tr>
+		<th colspan="5">THÔNG TIN CÁC SẢN PHẨM</th>
+	</tr>
+	<%while(rs.next()){ %>
+		<%if(sc++==1){ %><tr><%} %>
+		<td>
+			<b><%=rs.getString("ten_sua") %></b><br>
+			<%=rs.getInt("trong_luong") %> gr - <%=nf.format(rs.getInt("don_gia")) %> VNĐ<br>
+			<img src="images/<%=rs.getString("hinh") %>">
+		</td>
+		<%if(sc==6){sc=1; %></tr><%} %>
+	<%} %>
+	<%if(sc!=1){%></tr><%}%>
+</table>
+</body>
+</html>
