@@ -48,9 +48,49 @@ JSP = html + java code (nhúng java code vào html); khác với de\\servlet = j
                             </body>
                             </html>
                             
- Buổi 3 : =================   Ngôn ngữ biểu thức El ===================================
- 
+ Buổi 3 : =================   Phân tích biến ẩn ===================================
+    1- jsp 1 : 
+                                  <%@page import="java.util.ArrayList"%>
+                       <%@ page language="java" contentType="text/html; charset=UTF-8"
+                           pageEncoding="UTF-8"%>
+                       <!DOCTYPE html>
+                       <html>
+                       <head>
+                       <meta charset="UTF-8">
+                       <title>Insert title here</title>
+                       <%
+                       ArrayList ls = new ArrayList();
+                       ls.add(0,1);
+                       ls.add(1,2);
+                       ls.add(2,3);
+                       int a=10;
+                       session.setAttribute("ls", ls);
+                       %>
 
+                       </head>
+                       <body>
+
+                       </body>
+                       </html>
+   2- jsp 2 : nhiệm vụ hứng lấy một list từ jsp gửi lên và in ra ==============> Thanh cong=======
+                                                <%@page import="java.util.ArrayList"%>
+                                 <%@ page language="java" contentType="text/html; charset=UTF-8"
+                                     pageEncoding="UTF-8"%>
+                                 <!DOCTYPE html>
+                                 <html>
+                                 <head>
+                                 <meta charset="UTF-8">
+                                 <title>Insert title here</title>
+                                 <%
+                                 ArrayList ls = new ArrayList();
+                                 ls = (ArrayList) session.getAttribute("ls");// nhớ cast sang arraylist
+                                 %>
+
+                                 </head>
+                                 <body>
+                                 <%=ls.get(1) %>
+                                 </body>
+                                 </html>
                             
 
     
